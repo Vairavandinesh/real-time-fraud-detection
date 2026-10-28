@@ -1,0 +1,7 @@
+.venv
+__pycache__
+*.pyc
+.git
+fraud_cases.csv
+fraud_predictions.csv
+drift_report.html
