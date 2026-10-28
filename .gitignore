@@ -6,12 +6,11 @@ __pycache__/
 mlruns/
 mlflow.db
 *.parquet
-dataset.csv
-fraud_predictions.csv
-fraud_cases.csv
+*.csv
 drift_report.html
+.env
+
+# Generated Feast data and local databases
 feast_repo/feature_repo/data/
 feast_repo/feature_repo/registry.db
-feast_repo/feature_repo/data/online_store.db
-.env
-graph_fraud_rings.csv
+*.db
