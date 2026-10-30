@@ -1,0 +1,13 @@
+{
+    "drift_scores": {
+        "amount": 0.0014902828821535964,
+        "oldbalanceOrg": 0.0009123210207434302,
+        "newbalanceOrig": 0.0006088989953086806,
+        "oldbalanceDest": 0.0016227569872525503,
+        "newbalanceDest": 0.002154145205688681
+    },
+    "max_psi": 0.002154145205688681,
+    "drift_detected": false,
+    "retraining_attempted": false,
+    "model_replaced": false
+}

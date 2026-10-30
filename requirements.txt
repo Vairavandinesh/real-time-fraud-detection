@@ -1,5 +1,15 @@
-fastapi
+﻿fastapi
 uvicorn
 pandas
+numpy
+pyarrow
 xgboost
 scikit-learn
+imbalanced-learn
+mlflow
+evidently
+streamlit
+feast
+networkx
+kafka-python
+httpx
