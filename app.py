@@ -4,8 +4,8 @@ from pydantic import BaseModel
 import pandas as pd
 from xgboost import XGBClassifier
 from pathlib import Path
-from feast import FeatureStore
-from pathlib import Path
+
+
 app = FastAPI(title="Fraud Detection API")
 
 # Load trained model
@@ -89,6 +89,7 @@ def get_transaction_features(transaction_id: int):
 
 @app.get("/predict-from-feast/{transaction_id}")
 def predict_from_feast(transaction_id: int):
+    from feast import FeatureStore
     
 
     repo_path = Path(__file__).parent / "feast_repo" / "feature_repo"
@@ -137,3 +138,29 @@ def predict_from_feast(transaction_id: int):
         "fraud_probability": round(probability, 4),
     }
 
+
+@app.get("/gnn-risk/{account_id}")
+def get_gnn_account_risk(account_id: str):
+    predictions_file = Path(__file__).parent / "gnn_account_predictions.csv"
+
+    if not predictions_file.exists():
+        return {"message": "GNN predictions file not found"}
+
+    predictions = pd.read_csv(predictions_file, dtype={"account_id": str})
+    account = predictions[predictions["account_id"] == account_id]
+
+    if account.empty:
+        return {
+            "account_id": account_id,
+            "message": "Account not found in the GNN prediction sample"
+        }
+
+    result = account.iloc[0]
+
+    return {
+        "account_id": account_id,
+        "gnn_risk_score": round(float(result["gnn_risk_score"]), 4),
+        
+        "model": "GraphSAGE",
+        "evaluation_note": "Transductive experimental score; not a production risk probability"
+    }

@@ -1,0 +1,16 @@
+{
+    "model": "GraphSAGE temporal evaluation",
+    "sample_transactions": 50000,
+    "training_steps": "1-6",
+    "testing_steps": "7-9",
+    "training_accounts": 11707,
+    "testing_source_accounts": 42836,
+    "training_fraud_accounts": 66,
+    "testing_fraud_accounts": 34,
+    "test_pr_auc": 0.0007937249042861145,
+    "threshold": 0.5,
+    "device": "CPU",
+    "features_source": "training-period normal transactions only",
+    "graph_edges_source": "training-period normal transactions only",
+    "test_definition": "account originated at least one fraud transaction during testing period"
+}

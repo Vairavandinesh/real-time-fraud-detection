@@ -14,16 +14,20 @@ flowchart TD
     B --> C[XGBoost training]
     C --> D[fraud_model.json]
     B --> E[Feast feature store]
-    F[Kafka producer] --> G[Kafka topic]
-    G --> H[Kafka consumer]
-    H --> I[FastAPI prediction service]
-    D --> I
-    E --> I
-    I --> J[Fraud predictions]
-    J --> K[Streamlit analyst dashboard]
-    B --> L[Evidently drift report]
-    M[Transaction account graph] --> N[NetworkX fraud-ring screening]
-    I --> O[Kubernetes deployment]
+    B --> F[Account transaction graph]
+    F --> G[GraphSAGE model]
+    G --> H[Account risk predictions]
+    I[Kafka producer] --> J[Kafka topic]
+    J --> K[Kafka consumer]
+    K --> L[FastAPI prediction service]
+    D --> L
+    E --> L
+    H --> L
+    L --> M[Fraud predictions]
+    M --> N[Streamlit analyst dashboard]
+    B --> O[Evidently drift report]
+    O --> P[PSI drift check and conditional retraining]
+    L --> Q[Docker and Kubernetes]
 ```
 
 ## Technology

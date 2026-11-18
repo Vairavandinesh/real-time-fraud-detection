@@ -1,0 +1,13 @@
+{
+    "model": "GraphSAGE",
+    "sample_transactions": 50000,
+    "graph_accounts": 78473,
+    "fraud_labelled_accounts": 100,
+    "test_accounts": 15695,
+    "test_fraud_accounts": 20,
+    "test_pr_auc": 1.0,
+    "threshold": 0.5,
+    "device": "CPU",
+    "graph_edges_source": "normal transactions only",
+    "label_definition": "account originated at least one fraud transaction"
+}

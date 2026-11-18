@@ -5,3 +5,7 @@ __pycache__
 fraud_cases.csv
 fraud_predictions.csv
 drift_report.html
+dataset.csv
+*.parquet
+mlruns
+mlflow.db

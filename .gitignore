@@ -14,3 +14,5 @@ drift_report.html
 feast_repo/feature_repo/data/
 feast_repo/feature_repo/registry.db
 *.db
+
+!gnn_account_predictions.csv
